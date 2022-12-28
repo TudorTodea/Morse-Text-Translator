@@ -1,16 +1,16 @@
 import * as React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+import { Divider } from '@mui/material';
 const AppNavbar = () => {
   return (
     
     <>
      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Button size="small">Subscribe</Button>
+        <Button size="small" sx={{ letterSpacing:'3px',color:'black' }}>Learn Morse Code</Button>
+        <Divider orientation="vertical" variant="middle" flexItem />
+        <Button size="small" sx={{ letterSpacing:'3px',color:'black' }}>Morse Translator</Button>
         <Typography
           component="h2"
           variant="h5"
@@ -18,12 +18,11 @@ const AppNavbar = () => {
           align="center"
           noWrap
           sx={{ flex: 1 }}
+          letterSpacing={5}
         >
-         Morse Translator
+     
         </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
+        <Button size="small" sx={{ letterSpacing:'3px',color:'black' }}>Morse Game</Button>
        
       </Toolbar>
 
