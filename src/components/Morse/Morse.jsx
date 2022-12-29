@@ -1,10 +1,11 @@
 
-import { Button, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Button, Grid, IconButton, Paper, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useContext, useEffect, useState } from 'react'
 import ChangeCircle from '@mui/icons-material/ChangeCircle';
 import { morseToTextDict,TextToMorseDict } from '../../utils/morse';
 import AudioPlayContext from '../../context/audio-context';
+import PlayArrow from '@mui/icons-material/PlayArrow';
 const Morse = () => {
 
   const [textInput,setTextInput]=useState('');
@@ -28,7 +29,6 @@ function convertAsciiCharToMorse(asciiChar) {
   return TextToMorseDict[asciiChar.toUpperCase()];
 }
 
-
 function convertAsciiWordToMorse(asciiWord) {
   return asciiWord.split('').map(convertAsciiCharToMorse);
 }
@@ -38,12 +38,9 @@ function convertAsciiSentenceToMorse(asciiSentence) {
   return splitSentence.map(convertAsciiWordToMorse);
 }
 
-
 useEffect(()=>{
   audioCtx.initializeAudioContext();
 },[])
-
-
 
 useEffect(()=>{
   if(swap){
@@ -86,9 +83,9 @@ function inputSwap(){
           onChange={inputChange}
           sx={{ width:'80%' }}
         />
-
-        <ChangeCircle fontSize='large' sx={{ marginTop:3, marginBottom:3,cursor:'pointer' }}onClick={inputSwap}/>
-
+           <IconButton  sx={{ display:'flex',cursor:'pointer',marginTop:'20px',marginBottom:'20px' }}>
+        <ChangeCircle fontSize='large' onClick={inputSwap}/>
+        </IconButton>
         <TextField
           id="filled-multiline-static"
           label={swap?"Text Output":"Morse Output"}
@@ -99,12 +96,11 @@ function inputSwap(){
           value={swap?textOutput:morseOutput}
           disabled
         />
-        <Box sx={{ display:'flex' }}>
-          <Button  onClick={()=>audioCtx.playSentence(convertAsciiSentenceToMorse(textInput))}>
-            Play sentence
-          </Button>
-          </Box>
-        <Grid container sx={{ padding:{md:' 75px 120px 75px 120px',xs:'50px 0px 50px 0px' }}}>
+        <IconButton  sx={{ display:'flex',cursor:'pointer',marginTop:'20px' }}
+        onClick={()=>audioCtx.playSentence(convertAsciiSentenceToMorse(textInput))}>
+          <PlayArrow sx={{ fontSize:'38px'}} />
+          </IconButton>
+        <Grid container sx={{ padding:{md:' 50px 120px 50px 120px',xs:'50px 0px 50px 0px' }}}>
           <Grid item md={6}  xs={12} sx={{ display:'flex', alignItems:'flex-start',justifyContent:'flex-start',flexDirection:'column' }}>
             <Typography variant='h6'>
             Text to Morse
