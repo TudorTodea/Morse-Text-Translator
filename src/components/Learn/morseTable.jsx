@@ -88,7 +88,7 @@ export default function CustomizedTables() {
   const audioCtx=useContext(AudioPlayContext);
   return (
     <TableContainer  component={Paper}>
-      <Box p={3} sx={{ display:'flex' ,justifyContent:'center',gap:10 }}>
+      <Box p={3} sx={{ display:'flex' ,justifyContent:'center',gap:10,flexDirection:{md:'row',xs:'column'},alignItems:{xs:'center',md:'flex-start'} }}>
       <Table sx={{ width: 200,padding:'20px 20px 20px 20px' }} aria-label="customized table">
         <TableHead>
           <TableRow>

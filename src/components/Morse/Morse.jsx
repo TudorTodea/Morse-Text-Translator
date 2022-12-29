@@ -83,8 +83,8 @@ function inputSwap(){
           onChange={inputChange}
           sx={{ width:'80%' }}
         />
-           <IconButton  sx={{ display:'flex',cursor:'pointer',marginTop:'20px',marginBottom:'20px' }}>
-        <ChangeCircle fontSize='large' onClick={inputSwap}/>
+           <IconButton  sx={{ display:'flex',cursor:'pointer',marginTop:'20px',marginBottom:'20px' }}onClick={inputSwap}>
+        <ChangeCircle fontSize='large' />
         </IconButton>
         <TextField
           id="filled-multiline-static"
