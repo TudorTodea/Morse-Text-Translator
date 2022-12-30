@@ -77,3 +77,5 @@ export const TextToMorseDict = {
     '9': '----.',
     ' ': ' '
 };
+
+

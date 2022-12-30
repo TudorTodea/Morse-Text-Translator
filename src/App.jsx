@@ -4,6 +4,7 @@ import Morse from './components/Morse/Morse'
 import AppNavbar from './components/Navbar/navbar'
 import { Routes, Route } from 'react-router-dom';
 import Learn from './components/Learn/Learn';
+import Game from './components/Game/Game';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 <Routes>
 <Route path="/" element={<Learn/>} />
 <Route path="/translator" element={<Morse/>} />
+<Route path="/game" element={<Game/>} />
    </Routes>
    <Footer/>
    </Container>
