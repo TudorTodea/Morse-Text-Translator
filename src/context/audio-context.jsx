@@ -5,12 +5,15 @@ const AudioPlayContext = React.createContext({
   initializeAudioContext: () => { },
   playLetter:()=>{},
   playWord:()=>{},
-  playSentence:()=>{}
+  playSentence:()=>{},
+  setFrequency:()=>{},
+  setDashTime:()=>{},
+  setDotTime:()=>{}
 });
 
 
 export const AudioPlayContextProvider = (props) => {
-    const FREQUENCY = 440;
+    let FREQUENCY = 440;
     let DOT_TIME = 60;
     let DASH_TIME = DOT_TIME * 3;
     let SYMBOL_BREAK = DOT_TIME;
@@ -20,6 +23,16 @@ export const AudioPlayContextProvider = (props) => {
     let note_node;
     let gain_node;
     let audioContextInitialized = false;
+
+    function setFrequency(freq){
+
+    }
+    function setDotTime(dot){
+      DOT_TIME=dot
+          }
+    function setDashTime(dash){
+            DASH_TIME=dash
+                }
 
     function startNotePlaying() {
 
@@ -75,11 +88,15 @@ export const AudioPlayContextProvider = (props) => {
           await sleep(WORD_BREAK);
         }
       }
-    function initializeAudioContext() {
+    function initializeAudioContext(freq) {
     note_context = new AudioContext();
     note_node = note_context.createOscillator();
    gain_node = note_context.createGain();
-   note_node.frequency.value = FREQUENCY.toFixed(2);
+   if(freq){
+   note_node.frequency.value = freq.toFixed(2);}
+   else{
+    note_node.frequency.value = FREQUENCY.toFixed(2);
+   }
    gain_node.gain.value = 0;
    note_node.connect(gain_node);
    gain_node.connect(note_context.destination);
@@ -93,7 +110,10 @@ export const AudioPlayContextProvider = (props) => {
    initializeAudioContext: initializeAudioContext,
    playLetter:playLetter,
    playWord:playWord,
-   playSentence:playSentence
+   playSentence:playSentence,
+   setFrequency:setFrequency,
+   setDotTime:setDotTime,
+   setDashTime:setDashTime
     
   };
   return (
