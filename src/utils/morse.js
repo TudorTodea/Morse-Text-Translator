@@ -35,7 +35,8 @@ export const morseToTextDict = {
     '--...': '7',
     '---..': '8',
     '----.': '9',
-    ' ': ' '
+    ' ': ' ',
+    '/': ' '
 };
 
 export const TextToMorseDict = {

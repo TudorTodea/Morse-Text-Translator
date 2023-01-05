@@ -45,9 +45,12 @@ useEffect(()=>{
 useEffect(()=>{
   if(swap){
     const morseCodeArr = morseInput.split(' ');
-
+    console.log(morseCodeArr)
     let result = '';
     for (const code of morseCodeArr) {
+      if(code==='/'){
+        result+= " "
+      }
       result += morseToTextDict[code] || '';
     }
     setTextOutput(result)
@@ -55,7 +58,9 @@ useEffect(()=>{
     let result = '';
 
     for (const char of textInput) {
-
+      if(char===' '){
+        result+=' / '
+      }
       result += TextToMorseDict[char.toUpperCase()] || '';
       result += ' '; 
     }
@@ -81,7 +86,7 @@ function inputSwap(){
           variant="filled"
           value={swap?morseInput:textInput}
           onChange={inputChange}
-          sx={{ width:'80%' }}
+          sx={{ width:{md:'80%',xs:'100%'} }}
         />
            <IconButton  sx={{ display:'flex',cursor:'pointer',marginTop:'20px',marginBottom:'20px' }}onClick={inputSwap}>
         <ChangeCircle fontSize='large' />
@@ -92,7 +97,7 @@ function inputSwap(){
           multiline
           rows={3}
           variant="filled"
-          sx={{ width:'80%' }}
+          sx={{ width:{md:'80%',xs:'100%'} }}
           value={swap?textOutput:morseOutput}
           disabled
         />
@@ -107,7 +112,7 @@ function inputSwap(){
 
             </Typography>
             <Typography>
-            Just type letters, numbers and punctuation into the top box and the Morse code will appear in the bottom box. This is not a great tool for learning Morse code as looking at the dots and dashes does not help.
+            Just type letters, numbers and punctuation into the top box and the Morse code will appear in the bottom box. This is not really a great tool for learning Morse code as looking at the dots and dashes does not help.
             </Typography>
           </Grid>
 
@@ -117,7 +122,7 @@ function inputSwap(){
 
             </Typography>
             <Typography>
-            You can type Morse code into the top box using "." for a dot and "-" or " " for a space. The text translation will appear in the bottom box.
+            You can type Morse code into the top box using "." for a dot and "-" or " / " for a space. The letters should be separated by a " ". The text translation will appear in the bottom box.
             </Typography>
           </Grid>
 

@@ -8,7 +8,9 @@ const AudioPlayContext = React.createContext({
   playSentence:()=>{},
   setFrequency:()=>{},
   setDashTime:()=>{},
-  setDotTime:()=>{}
+  setDotTime:()=>{},
+  setSymbolBreak:()=>{},
+  setLetterBreak:()=>{}
 });
 
 
@@ -33,6 +35,12 @@ export const AudioPlayContextProvider = (props) => {
     function setDashTime(dash){
             DASH_TIME=dash
                 }
+    function setSymbolBreak(symbol){
+      SYMBOL_BREAK=symbol
+    }
+    function setLetterBreak(letter){
+      LETTER_BREAK=letter
+    }
 
     function startNotePlaying() {
 
@@ -113,7 +121,9 @@ export const AudioPlayContextProvider = (props) => {
    playSentence:playSentence,
    setFrequency:setFrequency,
    setDotTime:setDotTime,
-   setDashTime:setDashTime
+   setDashTime:setDashTime,
+   setSymbolBreak:setSymbolBreak,
+   setLetterBreak:setLetterBreak
     
   };
   return (

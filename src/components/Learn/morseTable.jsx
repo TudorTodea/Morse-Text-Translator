@@ -89,7 +89,7 @@ export default function CustomizedTables() {
   return (
     <TableContainer  component={Paper}>
       <Box p={3} sx={{ display:'flex' ,justifyContent:'center',gap:10,flexDirection:{md:'row',xs:'column'},alignItems:{xs:'center',md:'flex-start'} }}>
-      <Table sx={{ width: 200,padding:'20px 20px 20px 20px' }} aria-label="customized table">
+      <Table sx={{ width: {md:200,xs:300},padding:'20px 20px 20px 20px' }} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Letter</StyledTableCell>
@@ -109,7 +109,7 @@ export default function CustomizedTables() {
         </TableBody>
       </Table>
 
-      <Table sx={{ width: 200,padding:'20px 20px 20px 20px' }} aria-label="customized table">
+      <Table sx={{ width: {md:200,xs:300},padding:'20px 20px 20px 20px' }} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Letter</StyledTableCell>
@@ -128,7 +128,7 @@ export default function CustomizedTables() {
           ))}
         </TableBody>
       </Table>
-      <Table sx={{ width: 200,padding:'20px 20px 20px 20px',maxHeight:'600px' }} aria-label="customized table">
+      <Table sx={{width: {md:200,xs:300},padding:'20px 20px 20px 20px',maxHeight:'600px' }} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Digit</StyledTableCell>

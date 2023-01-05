@@ -10,7 +10,7 @@ function Footer() {
   return (
     <Box sx={{ backgroundColor:'#333333',color:'white',display:'flex',textAlign:'center' }}>
       <Container maxWidth="sm" >
-        <Typography variant="h6">Morse Translator</Typography>
+        <Typography variant="h6" sx={{ letterSpacing:'3px' }}>Morse Translator</Typography>
         <Box component="nav">
           <Link href="https://github.com/TudorTodea"><IconButton>
             <GitHub  sx={{ fontSize:'40px' }}color="primary" />
